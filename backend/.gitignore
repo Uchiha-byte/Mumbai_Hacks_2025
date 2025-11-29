@@ -1,0 +1,4 @@
+data/
+*.json
+faiss_index.bin
+faiss_metadata.json

@@ -1,0 +1,40 @@
+# ========== Core Framework ==========
+fastapi>=0.104.1
+uvicorn[standard]>=0.24.0
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+python-multipart>=0.0.6
+
+# ========== LangChain & AI ==========
+langchain>=0.1.0
+langchain-core>=0.1.0
+langchain-community>=0.0.20
+langchain-google-genai>=3.1.0
+google-genai>=1.52.0
+
+# ========== AI APIs & Tools ==========
+tavily-python>=0.7.13
+httpx>=0.25.2
+
+# ========== Embeddings & Similarity Search ==========
+sentence-transformers>=2.2.2
+faiss-cpu>=1.7.4
+numpy>=1.24.0
+
+# ========== Image Processing & Forensics ==========
+Pillow>=10.1.0
+opencv-python-headless>=4.12.0.88
+imagehash>=4.3.1
+exifread>=3.0.0
+
+# ========== Background Tasks (Optional) ==========
+# celery>=5.3.4
+# redis>=5.0.1
+
+# ========== Audio/Video (For Future) ==========
+# librosa>=0.10.1
+# ffmpeg-python>=0.2.0
+
+# ========== Utilities ==========
+python-dotenv>=1.0.0
+requests>=2.31.0
