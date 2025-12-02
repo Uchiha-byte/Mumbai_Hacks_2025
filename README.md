@@ -637,8 +637,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 📧 Contact
 
 For questions, issues, or suggestions:
-- **GitHub Issues**: [Create an issue](https://github.com/Uchiha-byte/TruthScan_Proto/issues)
-- **Repository**: [TruthScan_Proto](https://github.com/Uchiha-byte/TruthScan_Proto)
+- **GitHub Issues**: [Create an issue](https://github.com/Uchiha-byte/Mumbai_hacks_2025/issues)
+- **Repository**: [TruthScan_Proto](https://github.com/Uchiha-byte/Mumbai_hacks_2025)
 
 ---
 
@@ -655,4 +655,3 @@ For questions, issues, or suggestions:
 
 ---
 
-**Built with ❤️ by the TruthScan Team**
