@@ -329,7 +329,7 @@ GET /api/v1/stats
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/Uchiha-byte/TruthScan_Proto.git
+git clone https://github.com/Uchiha-byte/Mumbai_Hacks_2025.git
 cd TruthScan-main
 ```
 
