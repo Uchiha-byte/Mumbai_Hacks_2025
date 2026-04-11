@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\torch\_higher_order_ops\cond.py
+# hypothesis_version: 6.151.10
+
+['call_function', 'cond', 'eager', 'mode', 'output', 'tensor_meta', 'torch', 'true_graph']

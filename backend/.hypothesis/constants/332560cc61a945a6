@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\filelock\__init__.py
+# hypothesis_version: 6.151.10
+
+['AcquireReturnProxy', 'BaseFileLock', 'FileLock', 'SoftFileLock', 'Timeout', 'UnixFileLock', 'WindowsFileLock', '__version__', 'win32']

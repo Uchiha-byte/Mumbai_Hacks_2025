@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\torch\_higher_order_ops\prim_hop_base.py
+# hypothesis_version: 6.151.10
+
+['call_function', 'subgraph']

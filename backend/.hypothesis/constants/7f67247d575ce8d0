@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\torch\distributed\tensor\_dtensor_spec.py
+# hypothesis_version: 6.151.10
+
+['DTensorSpec', '_hash', 'mesh', 'placements', 'tensor_meta', 'unknown shape']

@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\langchain\agents\middleware\file_search.py
+# hypothesis_version: 6.151.10
+
+[1024, '\x00', '*', ',', '--', '--glob', '--json', '..', '/', 'No files found', 'No matches found', 'content', 'count', 'data', 'files_with_matches', 'line_number', 'lines', 'match', 'path', 'rg', 'text', 'type', '{', '}', '~']

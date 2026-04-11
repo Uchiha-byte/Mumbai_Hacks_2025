@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\torch\fx\experimental\sym_node.py
+# hypothesis_version: 6.151.10
+
+[256, '%s %s %s -> %s', '%s %s -> %s', ')', ', ', 'MAGIC %s %s %s', 'SymNode', '_indicator', 'abs', 'acos', 'add', 'and', 'asin', 'atan', 'bitwise_and', 'bitwise_or', 'ceil', 'ceiling', 'cos', 'cosh', 'eq', 'float_pow', 'float_truediv', 'floor', 'ge', 'gt', 'int_floordiv', 'int_truediv', 'is_contiguous', 'is_integer', 'le', 'log2', 'lshift', 'lt', 'magic_methods', 'method_to_operator', 'mod', 'mul', 'ne', 'neg', 'or', 'pos', 'pow_by_natural', 'round', 'rshift', 'sin', 'sinh', 'sqrt', 'sub', 'sym_float', 'sym_int', 'sym_ite', 'sym_log2', 'sym_max', 'sym_min', 'sym_node', 'sym_not', 'tan', 'tanh', 'trunc']

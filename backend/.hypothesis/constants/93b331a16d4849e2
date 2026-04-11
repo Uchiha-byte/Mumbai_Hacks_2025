@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\langchain_google_genai\_compat.py
+# hypothesis_version: 6.151.10
+
+['args', 'base64', 'block_type', 'cited_text', 'code', 'code_interpreter', 'confidenceScores', 'confidence_scores', 'data', 'dict', 'endIndex', 'end_index', 'executable_code', 'extras', 'file', 'file_data', 'file_uri', 'function_call', 'google_ai_metadata', 'google_genai', 'groundingChunks', 'groundingSupports', 'id', 'image', 'image/jpeg', 'inline_data', 'language', 'mime_type', 'name', 'no_tool_name_present', 'non_standard', 'outcome', 'output', 'reasoning', 'segment', 'server_tool_call', 'server_tool_result', 'signature', 'startIndex', 'start_index', 'text', 'thought', 'thought_signature', 'title', 'tool_call', 'tool_call_chunk', 'tool_call_id', 'type', 'uri', 'url', 'utf-8', 'value', 'web', 'webSearchQueries', 'web_search_queries', '{}']

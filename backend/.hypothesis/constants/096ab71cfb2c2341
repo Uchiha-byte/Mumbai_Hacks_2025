@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\langchain\agents\middleware\human_in_the_loop.py
+# hypothesis_version: 6.151.10
+
+['allowed_decisions', 'approve', 'args', 'decisions', 'description', 'edit', 'edited_action', 'error', 'id', 'message', 'messages', 'name', 'reject', 'tool_call', 'type']

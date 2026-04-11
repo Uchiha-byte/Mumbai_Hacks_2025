@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\langchain_google_genai\_common.py
+# hypothesis_version: 6.151.10
+
+[0.7, '0.0.0', 'ClientInfo', 'GEMINI_API_KEY', 'GOOGLE_API_KEY', 'api_key', 'api_transport', 'candidate_count', 'gemini_api_key', 'google_api_key', 'max_output_tokens', 'max_tokens', 'model', 'request_timeout', 'retries', 'temperature', 'top_k', 'top_p']

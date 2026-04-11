@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\langchain_core\vectorstores\base.py
+# hypothesis_version: 6.151.10
+
+[-1.0, 0.0, 0.5, 1.0, 'VST', 'VectorStore', 'before', 'embedding', 'ids', 'mmr', 'score_threshold', 'search_kwargs', 'search_type', 'similarity', 'tags']

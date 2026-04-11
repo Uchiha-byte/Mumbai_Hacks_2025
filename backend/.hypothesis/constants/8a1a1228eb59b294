@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\google\ai\generativelanguage_v1beta\types\generative_service.py
+# hypothesis_version: 6.151.10
+
+['AttributionSourceId', 'Candidate', 'ContentEmbedding', 'CountTokensRequest', 'CountTokensResponse', 'EmbedContentRequest', 'EmbedContentResponse', 'GenerationConfig', 'GoAway', 'GroundingAttribution', 'GroundingChunk', 'GroundingMetadata', 'GroundingSupport', 'ImageConfig', 'LogprobsResult', 'PrebuiltVoiceConfig', 'RealtimeInputConfig', 'RetrievalMetadata', 'SearchEntryPoint', 'Segment', 'SpeakerVoiceConfig', 'SpeechConfig', 'TaskType', 'ThinkingConfig', 'UrlContextMetadata', 'UrlMetadata', 'UsageMetadata', 'VoiceConfig', 'chunk_type', 'grounding_source', 'message_type', 'source', 'voice_config']

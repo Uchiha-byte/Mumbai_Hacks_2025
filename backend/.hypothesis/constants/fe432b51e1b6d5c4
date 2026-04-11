@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\cachetools\__init__.py
+# hypothesis_version: 6.151.10
+
+['%s is empty', '5.5.2', 'Cache', 'CacheInfo', 'FIFOCache', 'LFUCache', 'LRUCache', 'MRUCache', 'RRCache', 'TLRUCache', 'TTLCache', 'cached', 'cachedmethod', 'currsize', 'expires', 'hits', 'key', 'maxsize', 'misses', 'next', 'prev', 'removed', 'value too large']

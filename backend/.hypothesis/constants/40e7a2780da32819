@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\torch\distributed\tensor\_random.py
+# hypothesis_version: 6.151.10
+
+['_RNGStateTracker', 'cpu', 'cuda', 'manual_seed', 'parallel-rng', 'set_rng_state']

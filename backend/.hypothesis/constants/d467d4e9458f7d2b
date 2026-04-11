@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\langchain\agents\middleware\tool_selection.py
+# hypothesis_version: 6.151.10
+
+['content', 'role', 'system', 'tools']

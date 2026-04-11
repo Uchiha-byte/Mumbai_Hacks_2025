@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\torch\utils\_cxx_pytree.py
+# hypothesis_version: 6.151.10
+
+['*', 'Context', 'DumpableContext', 'FlattenFunc', 'LeafSpec', 'PyTree', 'R', 'S', 'T', 'ToDumpableContextFn', 'TreeSpec', 'U', 'UnflattenFunc', 'key_get', 'keystr', 'register_pytree_node', 'torch', 'tree_all', 'tree_all_only', 'tree_any', 'tree_any_only', 'tree_flatten', 'tree_iter', 'tree_leaves', 'tree_map', 'tree_map_', 'tree_map_only', 'tree_map_only_', 'tree_map_with_path', 'tree_structure', 'tree_unflatten', 'treespec_dumps', 'treespec_loads', 'treespec_pprint']

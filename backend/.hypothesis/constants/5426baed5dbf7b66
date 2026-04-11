@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\torch\fx\immutable_collections.py
+# hypothesis_version: 6.151.10
+
+['__delitem__', '__iadd__', '__imul__', '__ior__', '__setitem__', 'append', 'clear', 'extend', 'immutable_', 'immutable_dict', 'immutable_list', 'insert', 'pop', 'popitem', 'remove', 'reverse', 'setdefault', 'sort', 'update']

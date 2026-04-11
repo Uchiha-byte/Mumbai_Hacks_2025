@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\langchain\agents\middleware\shell_tool.py
+# hypothesis_version: 6.151.10
+
+['/bin/bash', '<no output>', 'HostExecutionPolicy', 'RedactionRule', 'ShellToolMiddleware', '__LC_SHELL_DONE__', 'after', 'command', 'dict[str, Any]', 'error', 'exit\n', 'exit_code', 'killpg', 'matches', 'redaction_matches', 'replace', 'restart', 'shell', 'stderr', 'stdout', 'success', 'timed_out', 'total_bytes', 'total_lines', 'truncated_by_bytes', 'truncated_by_lines', 'utf-8']

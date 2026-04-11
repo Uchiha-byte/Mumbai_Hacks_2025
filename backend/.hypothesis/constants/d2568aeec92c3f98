@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\langchain_google_genai\llms.py
+# hypothesis_version: 6.151.10
+
+['after', 'alias', 'google_gemini', 'google_genai', 'ls_max_tokens', 'ls_model_name', 'ls_provider', 'max_output_tokens', 'models/', 'usage_metadata']

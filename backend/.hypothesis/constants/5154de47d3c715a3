@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\torch\_export\__init__.py
+# hypothesis_version: 6.151.10
+
+['Unsupported device ', '^[if]\\d+$', '_buffers', 'call_function', 'cpu', 'cuda', 'cuda:', 'export.private_api', 'inline_constraints', 'symbolic', 'win32', 'xpu', 'xpu:']

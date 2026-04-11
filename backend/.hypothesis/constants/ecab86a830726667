@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\proto\modules.py
+# hypothesis_version: 6.151.10
+
+['ProtoModule', 'define_module', 'manifest', 'marshal', 'package']

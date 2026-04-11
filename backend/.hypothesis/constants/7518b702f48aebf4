@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\langchain_google_genai\_genai_extension.py
+# hypothesis_version: 6.151.10
+
+[100, 443, '/', ':', 'Corpus', 'Document', 'EntityName', '[', 'api_endpoint', 'api_key', 'client_info', 'client_options', 'credentials', 'grpc', 'grpc_asyncio', 'http://', 'https://', 'transport']

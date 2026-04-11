@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\torch\_higher_order_ops\utils.py
+# hypothesis_version: 6.151.10
+
+['call_function', 'fake', 'output', 'placeholder', 'pos', 'requires_grad', 'sym_int_args', 'val']

@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\langchain\agents\middleware\_execution.py
+# hypothesis_version: 6.151.10
+
+[10.0, 30.0, 100, '--', '--cpus', '--memory', '--network', '--read-only', '--rm', '--user', '-c', '-e', '-i', '-v', '-w', '/', 'BaseExecutionPolicy', 'HostExecutionPolicy', 'RLIMIT_AS', 'RLIMIT_DATA', 'auto', 'codex', 'darwin', 'docker', 'langchain-shell-', 'linux', 'macos', 'none', 'prlimit', 'replace', 'run', 'sandbox', 'typing.Any', 'utf-8']

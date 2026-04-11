@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\langchain\agents\middleware\_redaction.py
+# hypothesis_version: 6.151.10
+
+['****', '-', '.', '/', ':', '@', 'PIIDetectionError', 'PIIMatch', 'RedactionRule', '[MASKED_URL]', 'apply_strategy', 'block', 'credit_card', 'detect_credit_card', 'detect_email', 'detect_ip', 'detect_mac_address', 'detect_url', 'email', 'end', 'hash', 'http', 'https', 'ip', 'mac_address', 'mask', 'redact', 'start', 'type', 'url', 'value', 'www.']

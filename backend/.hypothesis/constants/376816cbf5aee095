@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\langchain\agents\factory.py
+# hypothesis_version: 6.151.10
+
+[10000, 'AIMessage', 'InputSchema', 'OutputSchema', 'StateSchema', '__can_jump_to__', '__name__', 'after_agent', 'after_model', 'any', 'args', 'before_agent', 'before_model', 'create_agent', 'end', 'gpt-4.1', 'gpt-5', 'gpt-oss', 'grok', 'id', 'input', 'jump_to', 'messages', 'model', 'model_name', 'name', 'o3-mini', 'o3-pro', 'output', 'recursion_limit', 'response_format', 'structured_response', 'tools']

@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\google\api_core\client_info.py
+# hypothesis_version: 6.151.10
+
+['grpc/{grpc_version} ', 'rest/{rest_version} ', '{user_agent} ']

@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\proto\fields.py
+# hypothesis_version: 6.151.10
+
+['DESCRIPTOR', 'Field', 'MapField', 'RepeatedField', '_meta', 'name', 'package', '{package}.{name}']

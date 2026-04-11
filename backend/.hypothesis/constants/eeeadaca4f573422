@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\google\ai\generativelanguage_v1beta\services\permission_service\transports\rest.py
+# hypothesis_version: 6.151.10
+
+[400, 'CancelOperation', 'Content-Type', 'CreatePermission', 'DeleteOperation', 'DeletePermission', 'GetOperation', 'GetPermission', 'ListOperations', 'ListPermissions', 'TransferOwnership', 'UpdatePermission', 'application/json', 'headers', 'httpRequest', 'httpResponse', 'https', 'metadata', 'method', 'payload', 'requestMethod', 'requestUrl', 'rest', 'rpcName', 'serviceName', 'status', 'uri', 'utf-8', '{host}{uri}']

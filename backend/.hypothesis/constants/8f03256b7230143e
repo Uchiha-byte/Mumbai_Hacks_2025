@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\langchain_google_genai\_enums.py
+# hypothesis_version: 6.151.10
+
+['HarmBlockThreshold', 'HarmCategory', 'MediaResolution', 'Modality']

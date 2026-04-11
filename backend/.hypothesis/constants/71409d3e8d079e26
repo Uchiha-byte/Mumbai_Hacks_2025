@@ -1,0 +1,4 @@
+# file: C:\Users\anskh\AppData\Roaming\Python\Python313\site-packages\google\longrunning\operations_pb2_grpc.py
+# hypothesis_version: 6.151.10
+
+['CancelOperation', 'DeleteOperation', 'GetOperation', 'ListOperations', 'WaitOperation']
