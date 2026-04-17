@@ -1,5 +1,5 @@
 import logging
-from typing import Dict
+from typing import Dict, Optional
 from app.core.fact_check import GoogleFactCheckAPI, ClaimDetector, NewsAPIClient
 from app.core.config import settings
 from app.core.database import get_db
@@ -12,11 +12,17 @@ class QuickAnalyzer:
         self.fact_check = GoogleFactCheckAPI(settings.GOOGLE_FACTCHECK_API_KEY)
         self.claim_detector = ClaimDetector()
         self.news_api = NewsAPIClient(settings.NEWS_API_KEY)
-        from sentence_transformers import SentenceTransformer
-        self.model = SentenceTransformer('all-MiniLM-L6-v2')
+        self.model = self._load_embedding_model()
         self.db = get_db()
-        from app.core.forensics import get_forensics
-        self.forensics = get_forensics()
+        self.forensics = None
+
+    def _load_embedding_model(self) -> Optional[object]:
+        try:
+            from sentence_transformers import SentenceTransformer
+            return SentenceTransformer('all-MiniLM-L6-v2')
+        except Exception as error:
+            logger.warning("SentenceTransformer unavailable; similarity search disabled: %s", error)
+            return None
 
     async def analyze_text(self, text: str) -> Dict:
         # 1. Extract core claim first for better searching
@@ -24,14 +30,21 @@ class QuickAnalyzer:
         claims = claim_data.get("claims", [])
         primary_claim = claims[0].get("text", text) if claims else text
         
-        # 2. Generate embedding for similarity search
-        embedding = await asyncio.to_thread(lambda: self.model.encode([primary_claim])[0].tolist())
-        
-        # 3. Query Supabase (Simultaneous with Fact Check)
-        matches_task = self.db.search_similar_hoaxes(embedding_vector=embedding, threshold=0.85, count=1)
-        fact_task = self.fact_check.get_verdict(primary_claim)
-        
-        matches, fact_result = await asyncio.gather(matches_task, fact_task)
+        # 2. Generate embedding for similarity search only if model is available
+        matches = []
+        if self.model is not None:
+            try:
+                embedding = await asyncio.to_thread(
+                    lambda: self.model.encode([primary_claim])[0].tolist()
+                )
+                matches = await self.db.search_similar_hoaxes(
+                    embedding_vector=embedding, threshold=0.85, count=1
+                )
+            except Exception as error:
+                logger.warning("Similarity search skipped due to embedding failure: %s", error)
+
+        # 3. Fact check in parallel path (kept independent from embeddings failures)
+        fact_result = await self.fact_check.get_verdict(primary_claim)
         
         # Priority 1: Direct match in our database
         if matches:
@@ -106,6 +119,9 @@ class QuickAnalyzer:
         }
 
     async def analyze_image(self, image_data: str) -> Dict:
+        if self.forensics is None:
+            from app.core.forensics import get_forensics
+            self.forensics = get_forensics()
         forensics_result = await asyncio.to_thread(self.forensics.analyze_image, image_data)
         
         verdict = forensics_result.get("verdict", "UNKNOWN")

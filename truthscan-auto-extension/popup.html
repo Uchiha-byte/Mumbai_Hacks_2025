@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TruthScan Auto</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="popup">
+      <section class="hero">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img">
+              <path
+                d="M12 2.5 4.8 6v6.2c0 5 2.8 8.7 7.2 10.3 4.4-1.6 7.2-5.3 7.2-10.3V6L12 2.5Zm0 3 4.8 2.4v4.3c0 3.7-1.9 6.5-4.8 7.8-2.9-1.3-4.8-4.1-4.8-7.8V7.9L12 5.5Zm-1.1 8.8-1.5-1.5-1.7 1.7 3.2 3.2 5.3-5.3-1.7-1.7-3.6 3.6Z"
+              />
+            </svg>
+          </div>
+          <div>
+            <h1>TruthScan Auto</h1>
+            <p class="tagline">Reliable misinformation scanning</p>
+          </div>
+        </div>
+        <p id="statusText" class="status">Loading...</p>
+      </section>
+
+      <section id="resultCard" class="result-card">
+        <p class="result-label">Latest verdict</p>
+        <p id="resultText" class="result">No scan result yet.</p>
+      </section>
+
+      <section class="actions">
+        <button id="toggleButton" class="toggle" type="button">Toggle</button>
+        <button id="scanNowButton" class="secondary" type="button">Scan Current Page</button>
+      </section>
+
+      <section class="settings">
+        <label class="field" for="apiBaseUrl">Backend URL</label>
+        <div class="url-row">
+          <input
+            id="apiBaseUrl"
+            class="input"
+            type="url"
+            placeholder="http://127.0.0.1:8000"
+            autocomplete="off"
+          />
+          <button id="saveApiButton" class="save" type="button">Save</button>
+        </div>
+      </section>
+
+      <p class="hint">Scans content automatically when enabled.</p>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
