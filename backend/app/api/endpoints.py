@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from typing import Optional, List, Literal
+import asyncio
 from app.core.quick_analyzer import get_quick_analyzer
 from app.core.storage import get_storage
 from fastapi import Request
@@ -87,7 +88,24 @@ async def quick_analyze(request: Request, request_data: QuickAnalysisRequest):
         
         # Route based on content type
         if request_data.content_type == "text":
-            result = await analyzer.analyze_text(request_data.content)
+            try:
+                result = await asyncio.wait_for(
+                    analyzer.analyze_text(request_data.content),
+                    timeout=8.0
+                )
+            except asyncio.TimeoutError:
+                result = {
+                    "verdict": "MIXED",
+                    "confidence": 35,
+                    "summary_one_liner": "Quick analysis timed out; showing fallback result.",
+                    "tl_dr_bullets": [
+                        "Backend dependency took too long to respond",
+                        "Try scanning again or run deep analysis",
+                        "No conclusive rapid verdict available"
+                    ],
+                    "evidence": [],
+                    "reasons": ["Timeout-safe fallback from quick analysis"]
+                }
         elif request_data.content_type == "image":
             result = await analyzer.analyze_image(request_data.content)
         else:
