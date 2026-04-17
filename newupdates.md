@@ -1,4 +1,4 @@
-Here’s a **clean, production-grade enhanced prompt** for your Antigravity code editor. I’ve improved clarity, structure, constraints, and added missing engineering details (async handling, retries, typing, env config, logging, testing hooks, etc.) so the generated code is actually usable in a real system—not just conceptual.
+
 
 ---
 
@@ -372,35 +372,3 @@ class QuickAnalyzer:
   * Proper agent routing
 
 ---
-
-# 🧪 BONUS (IMPORTANT IMPROVEMENTS)
-
-Add:
-
-* Unit-test-friendly design
-* Mockable API clients
-* Retry decorator
-* Timeout wrapper
-* Metrics hooks (future Prometheus support)
-
----
-
-# 🚨 CONSTRAINTS
-
-* DO NOT block event loop
-* DO NOT hardcode API keys
-* DO NOT skip error handling
-* DO NOT return unstructured text
-* ALWAYS return JSON
-
----
-
-# ✅ FINAL EXPECTATION
-
-Deliver:
-
-* Fully working Python module
-* Clean architecture
-* Production-ready integrations
-* Optimized API usage (cost + latency aware)
-
