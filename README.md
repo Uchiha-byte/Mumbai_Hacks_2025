@@ -36,6 +36,10 @@
 - **🤖 Multi-Agent System**: Supervisor agent pattern for intelligent routing to specialized agents
 - **📊 Feedback System**: User feedback collection for continuous improvement
 - **📈 Analytics**: System statistics and performance metrics
+- **🛡️ Resilience Layer**: Retry with jitter, provider circuit-breakers, and short-term result caching
+- **🧠 Fallback Intelligence**: Automatic Gemini → OpenAI fallback when Gemini quota is exhausted
+- **📰 Multi-source News Consensus**: NewsAPI + GNews verification for stronger confidence calibration
+- **🔎 Explainable Results**: `reason_codes`, low-confidence flags, and deep-analysis recommendation signals
 
 ### User Experience
 - **Modern UI**: Beautiful, responsive interface built with Next.js and Tailwind CSS
@@ -64,6 +68,8 @@
 | **ExifRead** | 3.0.0+ | EXIF metadata extraction |
 | **Pydantic** | 2.5.0+ | Data validation and settings management |
 | **Uvicorn** | 0.24.0+ | ASGI server |
+
+> Recommended runtime for best model compatibility: **Python 3.10/3.11 in project virtualenv**.
 
 ### Frontend
 | Technology | Version | Purpose |
@@ -270,7 +276,13 @@ POST /api/v1/quick-analyze
   "reasons": [
     "Reason for verdict 1",
     "Reason for verdict 2"
-  ]
+  ],
+  "reason_codes": [
+    "matched_database | factcheck_hit | news_consensus | ai_preliminary_only | timeout_fallback"
+  ],
+  "low_confidence": false,
+  "deep_analysis_recommended": false,
+  "deep_analysis_started": false
 }
 ```
 **Processing Time**: 2-5 seconds (similarity search + forensics)
@@ -316,6 +328,17 @@ GET /api/v1/stats
   }
 }
 ```
+
+#### 7. **Quality Metrics**
+```http
+GET /api/v1/quality-metrics
+```
+Tracks operational quality over time:
+- fallback/timeout rates
+- low-confidence rate
+- deep-analysis trigger rate
+- reason-code distribution
+- feedback-derived precision/recall by verdict
 
 ---
 
@@ -380,7 +403,11 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
 
 #### Step 5: Run Backend Server
 ```bash
-uvicorn app.main:app --reload
+# Windows (recommended)
+.\.venv\Scripts\python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
+
+# macOS/Linux
+python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
 ```
 Backend will be available at: `http://localhost:8000`
 
@@ -588,6 +615,10 @@ sequenceDiagram
 | `GOOGLE_API_KEY` | Google Gemini API key for LLM | [Google AI Studio](https://makersuite.google.com/app/apikey) |
 | `HUGGINGFACE_API_TOKEN` | HuggingFace API token | [HuggingFace Settings](https://huggingface.co/settings/tokens) |
 | `TAVILY_API_KEY` | Tavily search API key | [Tavily](https://tavily.com/) |
+| `OPENAI_API_KEY` | OpenAI API key (Gemini quota fallback + ensemble) | [OpenAI Platform](https://platform.openai.com/api-keys) |
+| `GOOGLE_FACTCHECK_API_KEY` | Google Fact Check API key | [Google Fact Check Tools](https://developers.google.com/fact-check/tools/api) |
+| `NEWS_API_KEY` | NewsAPI key | [NewsAPI](https://newsapi.org/) |
+| `GNEWS_API_KEY` | GNews key for multi-source consensus | [GNews](https://gnews.io/) |
 
 ### Optional Variables
 
@@ -646,7 +677,7 @@ For questions, issues, or suggestions:
 
 - [ ] Real-time video stream analysis
 - [ ] Multi-language support
-- [ ] Browser extension
+- [x] Browser extension (TruthScan Auto, Manifest V3)
 - [ ] Mobile application
 - [ ] Advanced reporting and analytics dashboard
 - [ ] Integration with social media platforms
