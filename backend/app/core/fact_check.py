@@ -94,9 +94,45 @@ class GoogleFactCheckAPI:
 class ClaimDetector:
     def __init__(self):
         self.model = None
+        self.openai_client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY) if settings.OPENAI_API_KEY else None
         if settings.GOOGLE_API_KEY:
             genai.configure(api_key=settings.GOOGLE_API_KEY)
             self.model = genai.GenerativeModel("gemini-2.5-flash")
+
+    async def _extract_claims_with_openai(self, text: str) -> Optional[Dict]:
+        if not self.openai_client:
+            return None
+        prompt = """Extract verifiable factual claims only. Ignore opinions.
+Return strict JSON with this format:
+{
+  "has_claims": true,
+  "claims": [
+    {
+      "text": "...",
+      "check_worthiness_score": 0.0,
+      "category": "general",
+      "preliminary_verdict": "FAKE" | "VERIFIED" | "SUSPECT",
+      "preliminary_reasoning": "..."
+    }
+  ]
+}"""
+        try:
+            response = await self.openai_client.chat.completions.create(
+                model="gpt-4o-mini",
+                response_format={"type": "json_object"},
+                messages=[
+                    {"role": "system", "content": prompt},
+                    {"role": "user", "content": text}
+                ],
+                temperature=0.2
+            )
+            content = (response.choices[0].message.content or "").strip()
+            parsed = json.loads(content)
+            if isinstance(parsed, dict) and "claims" in parsed:
+                return parsed
+        except Exception as error:
+            logger.error("OpenAI fallback claim extraction failed: %s", error)
+        return None
 
     async def extract_claims(self, text: str) -> Dict:
         """Extract verifiable factual claims using Gemini."""
@@ -126,7 +162,10 @@ Return strictly in JSON format:
             return json.loads(text_resp)
         except Exception as e:
             if "RESOURCE_EXHAUSTED" in str(e) or "429" in str(e):
-                logger.error("Gemini Quota Exhausted.")
+                logger.error("Gemini quota exhausted; switching to OpenAI fallback.")
+                openai_fallback = await self._extract_claims_with_openai(text)
+                if openai_fallback:
+                    return openai_fallback
                 return {
                     "has_claims": True, 
                     "claims": [{
@@ -192,6 +231,107 @@ class NewsAPIClient:
             "credible_sources": credible_count,
             "confidence": confidence,
             "verdict": verdict,
+            "top_articles": top_articles
+        }
+
+
+class GNewsClient:
+    def __init__(self, api_key: Optional[str]):
+        self.api_key = api_key
+        self.base_url = "https://gnews.io/api/v4/search"
+        # Domain fragments for source credibility weighting.
+        self.credible_domains = {
+             # 🌐 Global / Wire Services
+            "reuters.com",
+            "apnews.com",
+            "afp.com",
+            "bloomberg.com",
+            "nytimes.com",
+            "washingtonpost.com",
+            "wsj.com",
+            "latimes.com",
+            "npr.org",
+            "usatoday.com",
+            "bbc.com",
+            "theguardian.com",
+            "ft.com",
+            "economist.com",
+            "independent.co.uk",
+            "thehindu.com",
+            "indianexpress.com",
+            "ndtv.com",
+            "hindustantimes.com",
+            "scroll.in",
+            "thewire.in",
+            "newslaundry.com",
+
+    # 🇪🇺 Europe
+            "dw.com",
+            "france24.com",
+            "euronews.com",
+            "elpais.com",
+
+    # 🔍 Fact-checking orgs (VERY IMPORTANT)
+            "snopes.com",
+            "factcheck.org",
+            "politifact.com",
+            "altnews.in",
+            "boomlive.in"
+        }
+
+    def _is_credible_url(self, url: str) -> bool:
+        if not url:
+            return False
+        return any(domain in url for domain in self.credible_domains)
+
+    async def verify_claim_with_news(self, claim: str) -> Dict:
+        if not self.api_key:
+            return {"found_in_news": False, "verdict": "UNKNOWN", "confidence": 0, "source": "gnews"}
+
+        params = {
+            "q": claim,
+            "lang": "en",
+            "max": 10,
+            "token": self.api_key
+        }
+        try:
+            async with httpx.AsyncClient(timeout=6.0) as client:
+                response = await client.get(self.base_url, params=params)
+                response.raise_for_status()
+                payload = response.json()
+        except Exception as error:
+            logger.error("Error calling GNews API: %s", error)
+            return {
+                "found_in_news": False,
+                "verdict": "UNKNOWN",
+                "confidence": 0,
+                "source": "gnews",
+                "error": str(error)
+            }
+
+        articles = payload.get("articles", [])
+        if not articles:
+            return {"found_in_news": False, "verdict": "UNKNOWN", "confidence": 0, "source": "gnews"}
+
+        credible_sources = sum(1 for article in articles if self._is_credible_url(article.get("url", "")))
+        total = len(articles)
+        confidence = min(95, int(((credible_sources / total) * 100) if total else 0))
+        top_articles = [a.get("title") for a in articles[:3] if a.get("title")]
+
+        if credible_sources >= 3:
+            verdict = "VERIFIED"
+        elif credible_sources == 0:
+            verdict = "MIXED"
+        else:
+            verdict = "SUSPECT"
+
+        return {
+            "found_in_news": True,
+            "source": "gnews",
+            "verdict": verdict,
+            "confidence": confidence,
+            "credible_sources": credible_sources,
+            "total_articles": total,
             "top_articles": top_articles
         }
 
