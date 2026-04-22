@@ -25,6 +25,7 @@ class Settings(BaseSettings):
     # Upgrade Keys
     GOOGLE_FACTCHECK_API_KEY: str | None = None
     NEWS_API_KEY: str | None = None
+    GNEWS_API_KEY: str | None = None
     OPENAI_API_KEY: str | None = None
 
     # Database
